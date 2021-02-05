@@ -83,9 +83,7 @@ test('should edit expenses from firebase', (done) => {
         expect(actions[0]).toEqual({
             type: 'EDIT_EXPENSE',
             id,
-            updates: {
-                ...updates
-            }
+            updates
         });
         return database.ref(`expenses/${id}`).once('value');
     })
