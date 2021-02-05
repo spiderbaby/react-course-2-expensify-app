@@ -71,3 +71,12 @@ test('should not remove an expense by invalid id', () => {
     const state = expensesReducer(expenses, action);
     expect(state).toEqual(expenses);
 });
+
+test('should call set expenses', () => {
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: expenses.slice(1, 3)
+    };
+    const state = expensesReducer([expenses[0]], action);
+    expect(state).toEqual(expenses.slice(1, 3));
+});
